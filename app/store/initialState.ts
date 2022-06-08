@@ -1,0 +1,527 @@
+import { ADMIN, GUEST, STUDENT, TEACHER } from '../navigation/constants';
+import {
+  User,
+  Exersize,
+  Users,
+  Group,
+  Workload,
+  Discipline,
+  AnswerExersize,
+  Mark,
+  Post,
+  Comment,
+} from '../type';
+
+export const groupInitialState: Group[] = [
+  {
+    id: '0',
+    value: 'ПР111',
+  },
+  {
+    id: '1',
+    value: 'ПР212',
+  },
+  {
+    id: '2',
+    value: 'ПР313',
+  },
+];
+
+export const userInitialState: User = {
+  id: '0',
+  email: '',
+  name: '',
+  token: '',
+  pass: '',
+  groupId: '',
+  banned: false,
+  bannedReason: '',
+  role: '',
+  errorExists: false,
+  errorText: '',
+  logged: false,
+};
+
+export const usersInitialState: Users[] = [
+  {
+    id: '0',
+    name: 'Денисов Авраам Пантелеймонович',
+    groupId: '',
+    banned: false,
+    bannedReason: '',
+    role: ADMIN,
+  },
+  {
+    id: '1',
+    name: 'Кабанов Алексей Улебович',
+    groupId: '',
+    banned: false,
+    bannedReason: '',
+    role: TEACHER,
+  },
+  {
+    id: '2',
+    name: 'Орлов Любомир Созонович',
+    groupId: '',
+    banned: false,
+    bannedReason: '',
+    role: TEACHER,
+  },
+  {
+    id: '3',
+    name: 'Волков Лев Геласьевич',
+    groupId: '0',
+    banned: false,
+    bannedReason: '',
+    role: STUDENT,
+  },
+  {
+    id: '4',
+    name: 'Михеев Руслан Семенович',
+    groupId: '0',
+    banned: false,
+    bannedReason: '',
+    role: STUDENT,
+  },
+  {
+    id: '5',
+    name: 'Зуев Семен Лаврентьевич',
+    groupId: '1',
+    banned: false,
+    bannedReason: '',
+    role: STUDENT,
+  },
+  {
+    id: '6',
+    name: 'Антонов Альфред Митрофанович',
+    groupId: '1',
+    banned: false,
+    bannedReason: '',
+    role: STUDENT,
+  },
+  {
+    id: '7',
+    name: 'Мамонтов Виктор Петрович',
+    groupId: '2',
+    banned: false,
+    bannedReason: '',
+    role: STUDENT,
+  },
+  {
+    id: '8',
+    name: 'Иванков Владислав Валерьевич',
+    groupId: '2',
+    banned: false,
+    bannedReason: '',
+    role: STUDENT,
+  },
+  {
+    id: '8',
+    name: 'Воронов Аверкий Юрьевич',
+    groupId: '',
+    banned: false,
+    bannedReason: '',
+    role: GUEST,
+  },
+];
+
+export const exersizeInitialState: Exersize[] = [
+  {
+    id: '0',
+    title: 'Задание 1',
+    content:
+      'Задание 1 описание задания Возможность получать оценки конкретного ученика, конкретной группы и конкретного учителя конкретного предмета если осилишь то можно и оценки конкретного ученика по конкретному предмету',
+    file: 'zad1.docx',
+    userId: '1',
+    groupId: '0',
+    disciplineId: '0',
+  },
+  {
+    id: '1',
+    title: 'Задание 2',
+    content:
+      'Задание 2 описание задания Возможность получать оценки конкретного ученика, конкретной группы и конкретного учителя  конкретного предмета если осилишь то можно и оценки конкретного ученика по конкретному предмету',
+    file: 'zad2.docx',
+    userId: '1',
+    groupId: '1',
+    disciplineId: '0',
+  },
+  {
+    id: '2',
+    title: 'Задание 3',
+    content:
+      'Задание 3 описание задания Возможность получать оценки конкретного ученика, конкретной группы и конкретного учителя  конкретного предмета если осилишь то можно и оценки конкретного ученика по конкретному предмету',
+    file: 'zad3.docx',
+    userId: '1',
+    groupId: '2',
+    disciplineId: '0',
+  },
+  {
+    id: '3',
+    title: 'Задание 4',
+    content:
+      'Задание 4 описание задания Возможность получать оценки конкретного ученика, конкретной группы и конкретного учителя  конкретного предмета если осилишь то можно и оценки конкретного ученика по конкретному предмету',
+    file: 'zad4.docx',
+    userId: '2',
+    groupId: '0',
+    disciplineId: '1',
+  },
+  {
+    id: '4',
+    title: 'Задание 5',
+    content:
+      'Задание 5 описание задания Возможность получать оценки конкретного ученика, конкретной группы и конкретного учителя  конкретного предмета если осилишь то можно и оценки конкретного ученика по конкретному предмету',
+    file: 'zad5.docx',
+    userId: '2',
+    groupId: '1',
+    disciplineId: '1',
+  },
+  {
+    id: '5',
+    title: 'Задание 6',
+    content:
+      'Задание 6 описание задания Возможность получать оценки конкретного ученика, конкретной группы и конкретного учителя конкретного предмета если осилишь то можно и оценки конкретного ученика по конкретному предмету',
+    file: 'zad6.docx',
+    userId: '2',
+    groupId: '2',
+    disciplineId: '1',
+  },
+];
+
+export const disciplineInitialState: Discipline[] = [
+  {
+    id: '0',
+    value: 'Математика',
+  },
+  {
+    id: '1',
+    value: 'Геометрия',
+  },
+];
+
+export const workloadInitialState: Workload[] = [
+  {
+    id: '0',
+    disciplineId: '0',
+    groupId: '0',
+    teacherId: '1',
+  },
+  {
+    id: '1',
+    disciplineId: '1',
+    groupId: '0',
+    teacherId: '2',
+  },
+  {
+    id: '2',
+    disciplineId: '0',
+    groupId: '1',
+    teacherId: '1',
+  },
+  {
+    id: '3',
+    disciplineId: '1',
+    groupId: '1',
+    teacherId: '2',
+  },
+  {
+    id: '4',
+    disciplineId: '0',
+    groupId: '2',
+    teacherId: '1',
+  },
+  {
+    id: '5',
+    disciplineId: '1',
+    groupId: '2',
+    teacherId: '2',
+  },
+];
+
+export const answerExersizeInitialState: AnswerExersize[] = [
+  {
+    id: '0',
+    content: 'Студент 3 сделал задание 1',
+    file: 'ФайлОтветСтудент3задание1.docx',
+    studentI: '3',
+    exerciseId: '0',
+    markId: '0',
+  },
+  {
+    id: '1',
+    content: 'Студент 4 сделал задание 1',
+    file: 'ФайлОтветСтудент4задание1.docx',
+    studentI: '4',
+    exerciseId: '0',
+    markId: '1',
+  },
+  {
+    id: '2',
+    content: 'Студент 5 сделал задание 2',
+    file: 'ФайлОтветСтудент5задание2.docx',
+    studentI: '5',
+    exerciseId: '1',
+    markId: '2',
+  },
+  {
+    id: '3',
+    content: 'Студент 6 сделал задание 2',
+    file: 'ФайлОтветСтудент6задание2.docx',
+    studentI: '6',
+    exerciseId: '1',
+    markId: '3',
+  },
+  {
+    id: '4',
+    content: 'Студент 7 сделал задание 3',
+    file: 'ФайлОтветСтудент7задание3.docx',
+    studentI: '7',
+    exerciseId: '2',
+    markId: '4',
+  },
+  {
+    id: '5',
+    content: 'Студент 8 сделал задание 3',
+    file: 'ФайлОтветСтудент8задание3.docx',
+    studentI: '8',
+    exerciseId: '2',
+    markId: '5',
+  },
+  {
+    id: '6',
+    content: 'Студент 3 сделал задание 4',
+    file: 'ФайлОтветСтудент3задание4.docx',
+    studentI: '3',
+    exerciseId: '3',
+    markId: '6',
+  },
+  {
+    id: '7',
+    content: 'Студент 4 сделал задание 4',
+    file: 'ФайлОтветСтудент4задание4.docx',
+    studentI: '4',
+    exerciseId: '3',
+    markId: '7',
+  },
+  {
+    id: '8',
+    content: 'Студент 5 сделал задание 5',
+    file: 'ФайлОтветСтудент5задание5.docx',
+    studentI: '5',
+    exerciseId: '4',
+    markId: '8',
+  },
+  {
+    id: '9',
+    content: 'Студент 6 сделал задание 5',
+    file: 'ФайлОтветСтудент6задание5.docx',
+    studentI: '6',
+    exerciseId: '4',
+    markId: '9',
+  },
+  {
+    id: '10',
+    content: 'Студент 7 сделал задание 6',
+    file: 'ФайлОтветСтудент7задание6.docx',
+    studentI: '7',
+    exerciseId: '5',
+    markId: '10',
+  },
+  {
+    id: '11',
+    content: 'Студент 8 сделал задание 6',
+    file: 'ФайлОтветСтудент8задание6.docx',
+    studentI: '8',
+    exerciseId: '5',
+    markId: '11',
+  },
+];
+
+export const markInitialState: Mark[] = [
+  {
+    id: '0',
+    value: '4',
+    teacherId: '1',
+    studentId: '3',
+    groupId: '0',
+    exersizeId: '0',
+    disciplineId: '0',
+  },
+  {
+    id: '1',
+    value: '5',
+    teacherId: '1',
+    studentId: '4',
+    groupId: '0',
+    exersizeId: '0',
+    disciplineId: '0',
+  },
+  {
+    id: '2',
+    value: '3',
+    teacherId: '1',
+    studentId: '5',
+    groupId: '1',
+    exersizeId: '1',
+    disciplineId: '',
+  },
+  {
+    id: '3',
+    value: '4',
+    teacherId: '1',
+    studentId: '6',
+    groupId: '1',
+    exersizeId: '1',
+    disciplineId: '0',
+  },
+  {
+    id: '4',
+    value: '3',
+    teacherId: '1',
+    studentId: '7',
+    groupId: '2',
+    exersizeId: '2',
+    disciplineId: '0',
+  },
+  {
+    id: '5',
+    value: '5',
+    teacherId: '1',
+    studentId: '8',
+    groupId: '2',
+    exersizeId: '2',
+    disciplineId: '0',
+  },
+  {
+    id: '6',
+    value: '3',
+    teacherId: '2',
+    studentId: '3',
+    groupId: '0',
+    exersizeId: '3',
+    disciplineId: '1',
+  },
+  {
+    id: '7',
+    value: '4',
+    teacherId: '2',
+    studentId: '4',
+    groupId: '0',
+    exersizeId: '3',
+    disciplineId: '1',
+  },
+  {
+    id: '8',
+    value: '5',
+    teacherId: '2',
+    studentId: '5',
+    groupId: '1',
+    exersizeId: '4',
+    disciplineId: '1',
+  },
+  {
+    id: '9',
+    value: '5',
+    teacherId: '2',
+    studentId: '6',
+    groupId: '1',
+    exersizeId: '4',
+    disciplineId: '1',
+  },
+  {
+    id: '10',
+    value: '4',
+    teacherId: '2',
+    studentId: '7',
+    groupId: '2',
+    exersizeId: '5',
+    disciplineId: '1',
+  },
+  {
+    id: '11',
+    value: '4',
+    teacherId: '2',
+    studentId: '8',
+    groupId: '2',
+    exersizeId: '5',
+    disciplineId: '1',
+  },
+];
+
+export const postInitialState: Post[] = [
+  {
+    id: '0',
+    title: 'Добро пожаловать в личный кабинет студента!',
+    content:
+      'Также как начало повседневной работы по формированию позиции говорит о возможностях дальнейших направлений развития. А также элементы политического процесса, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут подвергнуты целой серии независимых исследований.',
+    img: 'Новость1.png',
+    userId: '0',
+  },
+  {
+    id: '1',
+    title: 'Новость 2',
+    content:
+      'Как уже неоднократно упомянуто, некоторые особенности внутренней политики разоблачены. Учитывая ключевые сценарии поведения, понимание сути ресурсосберегающих технологий, в своём классическом представлении, допускает внедрение экспериментов, поражающих по своей масштабности и грандиозности.',
+    img: 'Новость2.png',
+    userId: '0',
+  },
+  {
+    id: '2',
+    title: 'Новость 3',
+    content:
+      'Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: постоянный количественный рост и сфера нашей активности напрямую зависит от анализа существующих паттернов поведения. Но реплицированные с зарубежных источников, современные исследования, инициированные исключительно синтетически, разоблачены.',
+    img: 'Новость3.png',
+    userId: '0',
+  },
+];
+
+export const commentInitialState: Comment[] = [
+  {
+    id: '0',
+    text: 'Являясь всего лишь частью общей картины, акционеры крупнейших компаний набирают популярность среди определенных слоев населения, а значит, должны быть обнародованы.',
+    userId: '1',
+    postId: '0',
+  },
+  {
+    id: '1',
+    text: 'Сложно сказать, почему независимые государства могут быть обнародованы.',
+    userId: '2',
+    postId: '0',
+  },
+  {
+    id: '2',
+    text: 'Но высококачественный прототип будущего проекта является качественно новой ступенью дальнейших направлений развития.',
+    userId: '4',
+    postId: '0',
+  },
+  {
+    id: '3',
+    text: 'Имеется спорная точка зрения, гласящая примерно следующее: предприниматели в сети интернет формируют глобальную экономическую сеть и при этом — ассоциативно распределены по отраслям.',
+    userId: '3',
+    postId: '0',
+  },
+  {
+    id: '4',
+    text: 'Имеется спорная точка зрения, гласящая примерно следующее: действия представителей оппозиции, превозмогая сложившуюся непростую экономическую ситуацию, указаны как претенденты на роль ключевых факторов.',
+    userId: '1',
+    postId: '1',
+  },
+  {
+    id: '5',
+    text: 'Являясь всего лишь частью общей картины.',
+    userId: '6',
+    postId: '1',
+  },
+  {
+    id: '6',
+    text: 'Значимость этих проблем настолько очевидна',
+    userId: '7',
+    postId: '1',
+  },
+  {
+    id: '7',
+    text: 'А также элементы политического процесса',
+    userId: '8',
+    postId: '2',
+  },
+];
